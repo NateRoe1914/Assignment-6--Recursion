@@ -50,11 +50,11 @@ def group_sum_6(start, nums, target):
         return False
 
     if nums[start] == 6:
-        return sum_helper(start + 1, target - 6)
-    if sum_helper(start + 1, target - nums[start]):
+        return group_sum_6(start + 1, target - 6)
+    if group_sum_6(start + 1, target - nums[start]):
         return True
 
-    return sum_helper(start +1, target)
+    return group_sum_6(start +1, target)
 
 
 
@@ -95,7 +95,7 @@ def group_sum_5(start, nums, target):
 
     if nums[start] % 5 == 0:
         return group_sum_5(start + 2, nums, target - nums[start])
- 
+
     if group_sum_5(start + 1,  nums, target - nums[start]):
         return True
 
@@ -155,8 +155,6 @@ def split_array_helper(start, nums, target):
         return True
 
     return split_array_helper(start + 1, nums, target)
- 
-   
 
 
 def split_odd_10(nums):
@@ -214,5 +212,4 @@ def split_53_helper(start, nums, target):
         return True
 
     return split_53_helper(start + 1, nums, target)
-
-    
+   
