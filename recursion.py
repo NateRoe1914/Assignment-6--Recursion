@@ -50,11 +50,11 @@ def group_sum_6(start, nums, target):
         return False
 
     if nums[start] == 6:
-        return group_sum_6(start + 1, target - 6)
-    if group_sum_6(start + 1, target - nums[start]):
+        return group_sum_6(start + 1, nums, target - 6)
+    if group_sum_6(start + 1, nums, target - nums[start]):
         return True
 
-    return group_sum_6(start +1, target)
+    return group_sum_6(start +1, nums, target)
 
 
 
