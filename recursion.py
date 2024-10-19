@@ -146,6 +146,14 @@ def split_array(nums):
     return split_array_helper(0, nums, target)
 
 def split_array_helper(start, nums, target):
+    """
+    Given a list of ints, determine if the numbers can be split evenly into two groups
+    The sum of these two groups must be equal
+    Write a recursive helper to call from this function
+
+    pre: len(nums) >= 0, nums will only contain ints
+    post: return True if nums can be split, False otherwise
+    """
     if target == 0:
         return True
     if start >= len(nums) or target < 0:
@@ -169,6 +177,14 @@ def split_odd_10(nums):
     return split_odd_10_helper(nums, 0, 0, 0)
 
 def split_odd_10_helper(nums, start, odd_group, ten_group):
+    """
+    Given a list of ints, determine if the numbers can be split evenly into two groups
+    The sum of one group must be odd, while the other group must be a multiple of 10
+    Write a recursive helper to call from this function
+
+    pre: len(nums) >= 0, nums will only contain ints
+    post: return True if nums can be split, False otherwise
+    """
     if start == len(nums):
         return (odd_group % 2 == 1) and (ten_group % 10 == 0)
 
@@ -198,6 +214,16 @@ def split_53(nums):
     return split_53_helper(start, nums, target)
 
 def split_53_helper(start, nums, target):
+    """
+    Given a list of ints, determine if the numbers can be split evenly into two groups
+    The sum of these two groups must be equal
+    Additionally, all multiples of 5 must be in one group, and all multiples of 3 (and not 5)
+    must be in the other group
+    Write a recursive helper to call from this function
+
+    pre: len(nums) >= 0, nums will only contain ints
+    post: return True if nums can be split, False otherwise
+    """
     if target == 0:
         return True
     if start >= len(nums) or target < 0:
@@ -212,4 +238,4 @@ def split_53_helper(start, nums, target):
         return True
 
     return split_53_helper(start + 1, nums, target)
-   
+
