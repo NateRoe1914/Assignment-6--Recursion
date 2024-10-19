@@ -15,8 +15,6 @@ Students. Academic penalties up to and including an F in the course are likely.
 UT EID 1: nr25328
 """
 
-
-# TODO: Modify this function. You may delete this comment when you are done.
 def group_sum(start, nums, target):
     """
     Given a list of ints, determine if there exists a group of some ints that sum to the
@@ -36,9 +34,6 @@ def group_sum(start, nums, target):
     return group_sum(start + 1, nums, target)
 
 
-
-
-# TODO: Modify this function. You may delete this comment when you are done.
 def group_sum_6(start, nums, target):
     """
     Given a list of ints, determine if there exists a group of some ints that sum to the
@@ -198,12 +193,13 @@ def split_53(nums):
     post: return True if nums can be split, False otherwise
     """
     sum_of_nums = sum(nums)
+    start = 0
     target = sum_of_nums // 2
     if sum_of_nums % 2 != 0:
         return False
-    return split_53_helper(0, nums, target)
+    return split_53_helper(start, nums, target)
 
-def split_53_helper(0, nums, target):
+def split_53_helper(start, nums, target):
     if target == 0:
         return True
     if start >= len(nums) or target < 0:
@@ -214,9 +210,9 @@ def split_53_helper(0, nums, target):
     if nums[start] % 3 == 0:
         return split_53_helper(start + 1, nums, target)
 
-    if group_sum(start + 1,  nums, target - nums[start]):
+    if split_53_helper(start + 1,  nums, target - nums[start]):
         return True
 
-    return group_sum(start + 1, nums, target)
+    return split_53_helper(start + 1, nums, target)
 
     
